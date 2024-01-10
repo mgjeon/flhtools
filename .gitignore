@@ -1,0 +1,7 @@
+fastfl
+fastflh
+*.unf
+*.nc
+*.png
+
+**/__pycache__

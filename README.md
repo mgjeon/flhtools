@@ -1,15 +1,72 @@
 # flhtools
-===================================================
 
-FLHTOOLS - Field-Line Helicity TOOLS
+```
+mamba create -n flh
+mamba activate flh
+mamba install python ipykernel ipywidgets
+mamba install numpy scipy matplotlib
+```
 
-A.R. Yeates, Durham University -- 20/7/18
+## input
 
-===================================================
+- netcdf file
+    - datacube of 3D arrays $B_x$, $B_y$, $B_z$ defined at grid points of a regular grid (not on a staggered grid)
 
-Python code (2.7 or 3.x) for computing vector potentials, field-line helicity, and helicity on a regular Cartesian grid. Also requires Fortran 90 (used for tracing field lines).
 
-To start, you should read the manual (doc/man.pdf), which includes a quick-start guide to running the code.
+## field line tracing
 
-The code accompanies a paper: A.R. Yeates and M.H. Page, Relative field-line helicity in bounded domains, _J. Plasma Phys._ **84**, 775840602, 2018.
-(preprint here: https://arxiv.org/abs/1811.02306).
+- `fastfl.f90` (entire field line path)
+- `fastflh.f90` (field-line helicity)
+
+- Fortran
+    - [gfortran](https://fortran-lang.org/learn/os_setup/install_gfortran/#linux)
+    - [fortls](https://fortls.fortran-lang.org/quickstart.html)
+
+## `flhcart.BField`
+
+Python class for a 3d magnetic field snapshot on a staggered Cartesian grid
+
+- bx
+- by
+- bz
+
+- ax
+- ay
+- ax
+
+- bpx
+- bpy
+- bpz
+
+- apx
+- apy
+- apz
+
+- computeA0Coulomb
+- computeADeVore
+
+- computeBfromA
+
+- ghostB
+
+- trace
+
+- flHelicity
+
+- computePotentialField
+
+- poisson2dNeumann
+
+- matchPotentialGauge
+
+- lapMatrix
+
+- boundaryDiv
+
+- matchUniversalGauge
+
+- relativeHelicity
+
+- totalHelicity
+
+- crossHelicity
